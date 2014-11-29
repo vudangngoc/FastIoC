@@ -26,4 +26,10 @@ public class SimpleTypeCheckContainer implements ISimpleTypeCheckContainer {
 		return classContainer.get(key);
 	}
 
+	public <K, V extends K> boolean regit(Class<K> key, V value) {
+		NitroCache<Class<K>,V > classContainer = NitroCache.getInstance(5000,CacheEviction.LRU);
+		classContainer.put(key, value);
+		return false;
+	}
+
 }

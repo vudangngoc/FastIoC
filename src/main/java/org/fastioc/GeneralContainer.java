@@ -14,11 +14,11 @@ import com.hv.nitroCache.NitroCache;
  */
 public class GeneralContainer implements IGeneralContainer {
 
-  private  NitroCache<Class<?>,Class<?>> classContainer = NitroCache.getInstance(5000,CacheEviction.LRU);
+  private  NitroCache<Class<?>,Object> classContainer = NitroCache.getInstance(5000,CacheEviction.LRU);
   /* (non-Javadoc)
    * @see org.fastioc.IGeneralContainer#regit(java.lang.Class, java.lang.Class)
    */
-  public  boolean regit(Class<?> key, Class<?> value) {
+  public  boolean regit(Class<?> key, Object value) {
     classContainer.put(key, value);
     return false;
   }
@@ -26,7 +26,7 @@ public class GeneralContainer implements IGeneralContainer {
   /* (non-Javadoc)
    * @see org.fastioc.IGeneralContainer#resolve(java.lang.Class)
    */
-  public Class<?> resolve(Class<?> key) {
+  public Object resolve(Class<?> key) {
     return classContainer.get(key);
   }
 

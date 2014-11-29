@@ -8,8 +8,8 @@ package org.fastioc;
  */
 public interface IGeneralContainer {
 
-  public boolean regit(Class<?> key, Class<?> value);
+  public boolean regit(Class<?> key, Object value);
 
-  public Class<?> resolve(Class<?> key);
+  public Object resolve(Class<?> key);
 
 }

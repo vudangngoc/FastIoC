@@ -7,9 +7,6 @@ package org.fastioc;
  * Nov 27, 2014  
  */
 public interface ISimpleTypeCheckContainer {
-
-  public abstract boolean regit(Class<?> key, Class<?> value);
-
-  public abstract Class<?> resolve(Class<?> keyObject);
-
+	public <K,V extends K> boolean regit(Class<K> key,V value);
+	public abstract Class<?> resolve(Class<?> keyObject);
 }

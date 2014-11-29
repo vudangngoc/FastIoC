@@ -13,11 +13,17 @@
 	</repositories>
 	<dependencies>
 
-	<dependency>
-		<groupId>NitroCache</groupId>
-		<artifactId>NitroCache</artifactId>
-		<version>0.4</version>
-	</dependency>
+		<dependency>
+			<groupId>NitroCache</groupId>
+			<artifactId>NitroCache</artifactId>
+			<version>0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
