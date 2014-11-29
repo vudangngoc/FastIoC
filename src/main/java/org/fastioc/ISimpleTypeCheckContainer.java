@@ -8,7 +8,7 @@ package org.fastioc;
  */
 public interface ISimpleTypeCheckContainer {
 
-  public abstract boolean regit(Class<?> value);
+  public abstract boolean regit(Class<?> key, Class<?> value);
 
   public abstract Class<?> resolve(Class<?> keyObject);
 
