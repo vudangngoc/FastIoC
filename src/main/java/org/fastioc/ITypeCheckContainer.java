@@ -8,7 +8,7 @@ package org.fastioc;
  * Nov 27, 2014  
  */
 public interface ITypeCheckContainer {
-  public <K, V extends K> boolean regit(K key,V value);
-  public <K, V extends K> V resolve(K key);
+  public <K, V extends K> boolean regit(Class<K> key,V value);
+  public <K, V extends K> V resolve(Class<K> key);
 
 }
