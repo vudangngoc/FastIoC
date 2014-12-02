@@ -13,10 +13,11 @@ import org.junit.Test;
 public class TestSimpleTypeCheckContainer {
 	public void setUp(){}
 	public void tearDown(){}
-	public void Get(){
-//		ISimpleTypeCheckContainer container = new SimpleTypeCheckContainer();
-//		container.regit(IGeneralContainer.class,GeneralContainer.class);
-//		System.out.println("implement of IGeneralContainer.class is " + container.resolve(IGeneralContainer.class).getTypeName());
+	@Test
+	public void testGet(){
+		ISimpleTypeCheckContainer container = new SimpleTypeCheckContainer();
+		container.regit(IGeneralContainer.class,new GeneralContainer());
+		System.out.println("implement of IGeneralContainer.class is " + ((IGeneralContainer)container.resolve(IGeneralContainer.class)).getClass());
 	}
 	@Test
 	public void testValiding(){

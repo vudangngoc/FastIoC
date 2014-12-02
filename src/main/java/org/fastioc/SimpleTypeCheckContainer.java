@@ -11,26 +11,17 @@ import com.hv.nitroCache.NitroCache;
  * Nov 27, 2014  
  */
 public class SimpleTypeCheckContainer implements ISimpleTypeCheckContainer {
-	private NitroCache<Class<?>,Class<?>> classContainer = NitroCache.getInstance(5000,CacheEviction.LRU);
-	public boolean regit(Class<?> key,Class<?> value) {
-		if (key.isAssignableFrom(value.getClass())){
-			classContainer.put(key,value);
-			return true;
-		}
-
-		return false;
-	}
-
-	public Class<?> resolve(Class<?> key) {
-		// TODO Auto-generated method stub
-		return classContainer.get(key);
-	}
-	//NitroCache<Class<?>,Item<? extends K> > classC = NitroCache.getInstance(5000,CacheEviction.LRU);
+	private NitroCache<Class<?>,Object> classContainer = NitroCache.getInstance(5000,CacheEviction.LRU);
 
 	public <K, V extends K> boolean regit(Class<K> key, V value) {
 		
 		//classC.put(key, value);
 		return false;
 	}
+
+  public <K, V extends K> V resolve(Class<K> keyObject) {
+    // TODO Auto-generated method stub
+    return (V)classContainer.get(keyObject);
+  }
 
 }
