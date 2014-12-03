@@ -7,13 +7,13 @@ I try to compare this container with Google Guice. Although Guice support a lot 
 
 round  | Guice	|  FastIoC
 -------|--------|---------
-1       |7.614	|  4.858
-2       |7.019	|  4.918
-3       |7.212	|  4.986
-4       |7.466	|  4.962
-5       |7.114	|  5.06
-6       |9.224	|  4.725
-avg     |7.608  | 4.918
+1       |6.1	|  4.858
+2       |6.28	|  4.918
+3       |6.196	|  4.986
+4       |6.572	|  4.962
+5       |6.236	|  5.06
+6       | 6.245	|  4.725
+avg     |6.272  | 4.918
 
 You can check the result by your self
 
