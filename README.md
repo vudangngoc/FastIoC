@@ -16,3 +16,5 @@ round  | Guice	|  FastIoC
 avg     |7.608  | 4.918
 
 You can check the result by your self
+
+I get test idea from this link http://www.christianschenk.org/blog/comparison-between-guice-picocontainer-and-spring/
