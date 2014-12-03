@@ -10,17 +10,21 @@ import com.hv.nitroCache.NitroCache;
  *          vudangngoc@gmail.com
  * Nov 27, 2014  
  */
-public class SimpleTypeCheckContainer implements ISimpleTypeCheckContainer {
+public class SimpleTypeCheckContainer implements ITypeCheckContainer {
 	private NitroCache<Class<?>,Object> classContainer = NitroCache.getInstance(5000,CacheEviction.LRU);
 
 	public <K, V extends K> boolean regit(Class<K> key, V value) {
-		
-		//classC.put(key, value);
-		return false;
+		if(classContainer.containsKey(key)){
+		  classContainer.remove(key);
+		  classContainer.put(key, value);
+		  return false;
+		}
+	  classContainer.put(key, value);
+		return true;
 	}
 
+  @SuppressWarnings("unchecked")
   public <K, V extends K> V resolve(Class<K> keyObject) {
-    // TODO Auto-generated method stub
     return (V)classContainer.get(keyObject);
   }
 
