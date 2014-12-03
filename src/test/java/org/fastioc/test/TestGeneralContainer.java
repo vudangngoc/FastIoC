@@ -12,7 +12,7 @@ public class TestGeneralContainer {
 
 	public void setUp(){}
 	public void tearDown(){}
-	@Test
+	
 	public void testContainer(){
 	  IGeneralContainer container = new GeneralContainer();
 	  container.regit(ITypeCheckContainer.class, new SimpleTypeCheckContainer());

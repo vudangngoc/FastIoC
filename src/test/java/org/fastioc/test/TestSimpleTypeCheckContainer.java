@@ -13,7 +13,7 @@ import org.junit.Test;
 public class TestSimpleTypeCheckContainer {
 	public void setUp(){}
 	public void tearDown(){}
-	@Test
+	
 	public void testGet(){
 		ITypeCheckContainer container = new SimpleTypeCheckContainer();
     container.regit(ITypeCheckContainer.class, new SimpleTypeCheckContainer());
@@ -23,7 +23,7 @@ public class TestSimpleTypeCheckContainer {
     assertNotNull(container.resolve(ITypeCheckContainer.class));
     assertTrue(container.resolve(IGeneralContainer.class) instanceof GeneralContainer);
 	}
-	@Test
+
 	public void testValiding(){
 //		ISimpleTypeCheckContainer container = new SimpleTypeCheckContainer();
 //		assertEquals(true, container.regit(IGeneralContainer.class,new GeneralContainer()));
