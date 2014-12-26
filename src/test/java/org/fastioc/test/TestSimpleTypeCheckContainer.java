@@ -3,11 +3,12 @@ package org.fastioc.test;
 import static org.junit.Assert.*;
 import junit.framework.Assert;
 
-import org.fastioc.GeneralContainer;
-import org.fastioc.IGeneralContainer;
-import org.fastioc.ITypeCheckContainer;
-import org.fastioc.SimpleTypeCheckContainer;
 import org.junit.Test;
+
+import com.creative.fastioc.GeneralContainer;
+import com.creative.fastioc.IGeneralContainer;
+import com.creative.fastioc.ITypeCheckContainer;
+import com.creative.fastioc.SimpleTypeCheckContainer;
 
 
 public class TestSimpleTypeCheckContainer {

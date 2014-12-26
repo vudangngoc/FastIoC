@@ -26,10 +26,10 @@ import org.christianschenk.guicepicospringcomparison.util.ComputationHelper;
 import org.christianschenk.guicepicospringcomparison.util.OutputHelper;
 import org.christianschenk.guicepicospringcomparison.util.output.LoggerOutput;
 import org.christianschenk.guicepicospringcomparison.util.output.SystemOutOutput;
-import org.fastioc.ITypeCheckContainer;
-import org.fastioc.SimpleTypeCheckContainer;
 import org.junit.Test;
 
+import com.creative.fastioc.ITypeCheckContainer;
+import com.creative.fastioc.SimpleTypeCheckContainer;
 import com.google.inject.Binder;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -40,24 +40,24 @@ public class ComparisonTest {
 	/*
 	 * Guice
 	 */
-	@Test
-	public void guice() {
-	  for(int i =0; i<10000; i++){
-			final Injector injector = Guice.createInjector(new GuiceBinderModule());
-		
-			final SuperManager mgr = injector.getInstance(SuperManager.class);
-			mgr.manage1();
-			mgr.manage2();
-		}
-	  System.out.println("Test Guice finish");
-	}
-
-	private final class GuiceBinderModule implements Module {
-		public void configure(final Binder binder) {
-			binder.bind(OutputManager1.class).toInstance(new OutputManager1(new OutputHelper(new SystemOutOutput())));
-			binder.bind(OutputManager2.class).toInstance(new OutputManager2(new OutputHelper(new LoggerOutput())));
-		}
-	}
+//	@Test
+//	public void guice() {
+//	  for(int i =0; i<10000; i++){
+//			final Injector injector = Guice.createInjector(new GuiceBinderModule());
+//		
+//			final SuperManager mgr = injector.getInstance(SuperManager.class);
+//			mgr.manage1();
+//			mgr.manage2();
+//		}
+//	  System.out.println("Test Guice finish");
+//	}
+//
+//	private final class GuiceBinderModule implements Module {
+//		public void configure(final Binder binder) {
+//			binder.bind(OutputManager1.class).toInstance(new OutputManager1(new OutputHelper(new SystemOutOutput())));
+//			binder.bind(OutputManager2.class).toInstance(new OutputManager2(new OutputHelper(new LoggerOutput())));
+//		}
+//	}
 
 	/*
 	 * FastIoC
