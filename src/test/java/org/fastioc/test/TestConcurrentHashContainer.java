@@ -1,16 +1,24 @@
 package org.fastioc.test;
 
-import java.util.concurrent.ConcurrentHashMap;
-
-import junit.framework.Assert;
-
 import org.junit.Test;
 
 import com.creative.fastioc.ConcurrentHashMapContainer;
 import com.creative.fastioc.ITypeCheckContainer;
-import com.creative.fastioc.SimpleTypeCheckContainer;
 
 public class TestConcurrentHashContainer {
+	public class MyThread implements Runnable{
+		private int i;
+		public MyThread(int i){
+			this.i = i;
+		}
+		@Override
+		public void run() {
+			container.resolve(Child1.class);
+			container.resolve(Child2.class);
+			container.resolve(Child3.class);
+			container.resolve(Child3.class).doSomething(this.i);
+		}
+	}
 	public void setUp(){
 		System.out.println("Setup complete");
 	}
@@ -20,10 +28,9 @@ public class TestConcurrentHashContainer {
 	private ITypeCheckContainer container = new ConcurrentHashMapContainer();
 	@Test
 	public void testHashMap(){
-		for(int i = 0; i < 10000; i++){
+
 		container.regit(Father.class, new Child2());
 		container.regit(Child2.class, new Child2());
-		Assert.assertNotNull(container.resolve(Father.class));
 		try {
 			container.regit(Child1.class, Child1.class);
 			container.regit(Child3.class, Child3.class);
@@ -31,12 +38,12 @@ public class TestConcurrentHashContainer {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		Assert.assertNotNull(container.resolve(Child1.class));
-		Assert.assertNotNull(container.resolve(Child2.class));
-		Assert.assertNotNull(container.resolve(Child3.class));
-		Assert.assertNull(container.resolve(String.class));
-		container.resolve(Child3.class).doSomething();
-	}
+		for(int i = 0; i < 1000; i++){
+			(new Thread(new TestConcurrentHashContainer.MyThread(i))).start();
+			//				container.resolve(Child1.class);
+			//				container.resolve(Child2.class);
+			//				container.resolve(Child3.class);
+			//				container.resolve(Child3.class).doSomething();
+		}
 	}
 }
