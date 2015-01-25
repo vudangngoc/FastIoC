@@ -16,7 +16,7 @@ public class TestConcurrentHashContainer {
 			container.resolve(Child1.class);
 			container.resolve(Child2.class);
 			container.resolve(Child3.class);
-			container.resolve(Child3.class).doSomething(this.i);
+			container.resolve(Child3.class).doSomething();
 		}
 	}
 	public void setUp(){
