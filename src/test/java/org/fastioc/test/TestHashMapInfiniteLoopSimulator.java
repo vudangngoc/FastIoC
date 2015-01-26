@@ -1,13 +1,10 @@
 
 package org.fastioc.test;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import org.junit.Test;
 
 import com.creative.fastioc.ConcurrentHashMapContainer;
 import com.google.inject.Guice;
@@ -18,18 +15,19 @@ import com.google.inject.Injector;
  * @author Pierre-Hugues Charbonneau
  *
  */
-public class HashMapInfiniteLoopSimulator {
+public class TestHashMapInfiniteLoopSimulator {
 
 
        private static final int NB_THREADS = 3;
        private static final int NB_TEST_ITERATIONS = 50;
-       static Injector injector = Guice.createInjector(new GuiceBinderModule());
+       Injector injector = Guice.createInjector(new GuiceBinderModule());
 
        /**
         * Main program
         * @param args
         */
-       public static void main(String[] args) {
+       @Test
+       public void testPerformance() {
             
              System.out.println("Infinite Looping HashMap Simulator");
              System.out.println("Author: Pierre-Hugues Charbonneau");
@@ -53,8 +51,8 @@ public class HashMapInfiniteLoopSimulator {
                     for (int j = 0; j < NB_THREADS; j++) {
                           
                            /** Assign the Map at your convenience **/
-                           Runnable worker = new FastiocWorker(CHMcontainer);
-                           //Runnable worker = new GuiceWorker(injector);
+                           //Runnable worker = new FastiocWorker(CHMcontainer);
+                           Runnable worker = new GuiceWorker(injector);
                            executor.execute(worker);              
                     }
                    

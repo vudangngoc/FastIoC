@@ -1,10 +1,6 @@
 
 package com.creative.fastioc;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Parameter;
-
 /**
  * Author : vudangngoc
  *          vudangngoc@gmail.com
